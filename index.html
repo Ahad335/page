@@ -1,148 +1,1633 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#07080c" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="Ahad Khan — Software Engineer at IIT Guwahati focused on AI/ML, full-stack systems, analytics, and product development."
-  />
+  <meta name="description"
+        content="Ahad Khan — Software Engineer at IIT Guwahati focused on AI/ML, full-stack systems, analytics and product development.">
 
-  <meta property="og:title" content="Ahad Khan — Software Engineer" />
-  <meta
-    property="og:description"
-    content="AI/ML, full-stack engineering, analytics, algorithms, and product development."
-  />
+  <meta name="theme-color" content="#070b12">
 
   <title>Ahad Khan — Software Engineer</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* =========================================
+       RESET
+    ========================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #070b12;
+      color: #eef5ff;
+      font-family: "Manrope", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: auto;
+    }
+
+
+    /* =========================================
+       BACKGROUND
+    ========================================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(130, 160, 190, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(130, 160, 190, 0.045) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 85%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      top: -250px;
+      left: 15%;
+      background: radial-gradient(
+        circle,
+        rgba(35, 255, 150, 0.10),
+        transparent 65%
+      );
+      pointer-events: none;
+      z-index: -1;
+    }
+
+
+    /* =========================================
+       NAVBAR
+    ========================================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      height: 82px;
+
+      border-bottom: 1px solid rgba(150, 180, 210, 0.14);
+
+      background: rgba(7, 11, 18, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .profile-picture {
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      border: 1.5px solid #deebe6;
+
+      box-shadow:
+        0 0 0 4px rgba(14, 17, 16, 0.05),
+        0 0 22px rgba(23, 35, 31, 0.13);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      color: #9fb1c7;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #7af5c6;
+    }
+
+    .github-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 12px 20px;
+
+      border: 1px solid rgba(130, 160, 210, 0.25);
+      border-radius: 14px;
+
+      color: #f4f8ff;
+
+      transition: 0.25s ease;
+    }
+
+    .github-btn:hover {
+      border-color: #c8d2cf;
+      transform: translateY(-2px);
+    }
+
+    .github-icon {
+      font-size: 19px;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      min-height: calc(100vh - 82px);
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+
+      align-items: center;
+      gap: 60px;
+
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      margin-bottom: 28px;
+
+      font-family: "DM Mono", monospace;
+      font-size: 14px;
+      letter-spacing: 0.8px;
+
+      color: #91abc3;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+
+      background: #66f044;
+      border-radius: 50%;
+
+      box-shadow: 0 0 15px rgba(102, 240, 68, 0.75);
+    }
+
+    .hero h1 {
+      max-width: 720px;
+
+      font-size: clamp(48px, 5.3vw, 78px);
+      line-height: 1.04;
+      letter-spacing: -3px;
+
+      font-weight: 700;
+    }
+
+    .hero h1 span {
+      color: #65e6b8;
+
+      text-shadow:
+        0 0 35px rgba(101, 230, 184, 0.16);
+    }
+
+    .hero-description {
+      max-width: 620px;
+
+      margin-top: 30px;
+
+      color: #9db0c7;
+
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+
+      margin-top: 36px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+
+      min-height: 58px;
+
+      padding: 0 28px;
+
+      border-radius: 15px;
+
+      font-size: 15px;
+      font-weight: 700;
+
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      color: #06100c;
+      background: #72e8bd;
+
+      box-shadow:
+        0 0 30px rgba(114, 232, 189, 0.13);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 10px 35px rgba(114, 232, 189, 0.18);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(120, 160, 195, 0.30);
+      color: #e6edf6;
+    }
+
+    .btn-secondary:hover {
+      border-color: #63dfb3;
+      transform: translateY(-3px);
+    }
+
+
+    /* =========================================
+       HERO INFO CARDS
+    ========================================= */
+
+    .hero-info {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr 1fr;
+
+      gap: 14px;
+
+      margin-top: 48px;
+    }
+
+    .info-card {
+      min-height: 84px;
+
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      padding: 16px;
+
+      border: 1px solid rgba(130, 165, 200, 0.12);
+      border-radius: 15px;
+
+      background: rgba(12, 20, 31, 0.62);
+    }
+
+    .info-icon {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background: rgba(40, 100, 145, 0.18);
+
+      font-size: 19px;
+    }
+
+    .info-card strong {
+      display: block;
+
+      font-size: 14px;
+      color: #f3f7fc;
+    }
+
+    .info-card span {
+      display: block;
+
+      margin-top: 3px;
+
+      font-size: 11px;
+      color: #8195aa;
+    }
+
+
+    /* =========================================
+       TERMINAL
+    ========================================= */
+
+    .terminal {
+      position: relative;
+
+      border: 1px solid rgba(120, 160, 205, 0.18);
+      border-radius: 19px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(16, 25, 38, 0.82),
+          rgba(5, 10, 17, 0.94)
+        );
+
+      box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.35),
+        inset 0 0 80px rgba(70, 130, 190, 0.025);
+    }
+
+    .terminal::before {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      top: 35%;
+      left: 30%;
+
+      background: radial-gradient(
+        circle,
+        rgba(60, 235, 170, 0.08),
+        transparent 70%
+      );
+
+      pointer-events: none;
+    }
+
+    .terminal-header {
+      height: 57px;
+
+      display: flex;
+      align-items: center;
+
+      padding: 0 20px;
+
+      border-bottom: 1px solid rgba(130, 165, 200, 0.12);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 9px;
+    }
+
+    .terminal-dots span {
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+    }
+
+    .dot-red {
+      background: #ff625f;
+    }
+
+    .dot-yellow {
+      background: #ffd34f;
+    }
+
+    .dot-green {
+      background: #3de16b;
+    }
+
+    .terminal-title {
+      margin-left: 30px;
+
+      font-family: "DM Mono", monospace;
+      font-size: 14px;
+
+      color: #8fa5bc;
+    }
+
+    .terminal-status {
+      margin-left: auto;
+
+      color: #6bff36;
+
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+    }
+
+    .terminal-body {
+      padding: 34px 30px 40px;
+
+      font-family: "DM Mono", monospace;
+      font-size: 15px;
+
+      color: #b4c6dd;
+    }
+
+    .terminal-line {
+      margin-bottom: 11px;
+    }
+
+    .terminal-prompt {
+      color: #6eff21;
+    }
+
+    .terminal-output {
+      margin-bottom: 30px;
+
+      color: #e8f0fa;
+    }
+
+    .terminal-muted {
+      color: #94aac3;
+      line-height: 1.9;
+    }
+
+    .terminal-status-text {
+      color: #a9d7ff;
+    }
+
+    .cursor {
+      display: inline-block;
+
+      width: 8px;
+      height: 16px;
+
+      margin-left: 5px;
+
+      background: #9bb2ce;
+
+      vertical-align: middle;
+
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+
+    /* =========================================
+       TECH TICKER
+    ========================================= */
+
+    .ticker {
+      overflow: hidden;
+
+      border-top: 1px solid rgba(130, 165, 200, 0.12);
+      border-bottom: 1px solid rgba(130, 165, 200, 0.12);
+
+      background: rgba(8, 14, 22, 0.75);
+    }
+
+    .ticker-track {
+      min-height: 58px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 38px;
+
+      width: max-content;
+
+      padding: 0 30px;
+
+      animation: ticker 30s linear infinite;
+
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+
+      color: #92abc3;
+    }
+
+    .ticker-track b {
+      color: #62e5b7;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+
+    /* =========================================
+       GENERAL SECTIONS
+    ========================================= */
+
+    .section {
+      padding: 125px 0;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-bottom: 20px;
+
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+
+      color: #6e849a;
+
+      letter-spacing: 1px;
+    }
+
+    .section-label span {
+      color: #68e5b5;
+    }
+
+    .section h2 {
+      max-width: 760px;
+
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.15;
+      letter-spacing: -1.8px;
+    }
+
+    .section-sub {
+      max-width: 680px;
+
+      margin-top: 20px;
+
+      color: #879bb0;
+
+      font-size: 16px;
+    }
+
+
+    /* =========================================
+       EDUCATION
+    ========================================= */
+
+    .education-main {
+      display: grid;
+
+      grid-template-columns: 1fr auto;
+
+      gap: 30px;
+
+      padding: 32px;
+
+      margin-top: 50px;
+
+      border: 1px solid rgba(130, 165, 200, 0.14);
+      border-radius: 20px;
+
+      background: rgba(12, 20, 31, 0.55);
+    }
+
+    .education-kicker {
+      color: #67e5b6;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .education-main h3 {
+      margin-top: 12px;
+
+      font-size: 26px;
+    }
+
+    .education-main p {
+      max-width: 650px;
+
+      margin-top: 10px;
+
+      color: #8da0b4;
+    }
+
+    .education-year {
+      color: #91a6bc;
+
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+    }
+
+    .school-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 16px;
+
+      margin-top: 16px;
+    }
+
+    .school-card {
+      padding: 25px;
+
+      border: 1px solid rgba(130, 165, 200, 0.12);
+      border-radius: 18px;
+
+      background: rgba(10, 17, 27, 0.55);
+    }
+
+    .school-card strong {
+      display: block;
+
+      margin-top: 10px;
+
+      font-size: 32px;
+      color: #f0f5fb;
+    }
+
+    .school-card p {
+      color: #788da3;
+      font-size: 13px;
+    }
+
+
+    /* =========================================
+       EXPERIENCE
+    ========================================= */
+
+    .experience-card {
+      margin-top: 50px;
+
+      padding: 38px;
+
+      border-left: 2px solid #63e3b4;
+
+      border-radius: 0 20px 20px 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(30, 72, 65, 0.12),
+          rgba(10, 17, 27, 0.45)
+        );
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      gap: 30px;
+    }
+
+    .experience-header h3 {
+      font-size: 26px;
+    }
+
+    .experience-header span {
+      display: block;
+
+      margin-top: 5px;
+
+      color: #7e93a8;
+    }
+
+    .experience-date {
+      color: #94a9bd;
+
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+    }
+
+    .experience-content {
+      max-width: 850px;
+
+      margin-top: 30px;
+    }
+
+    .experience-content h4 {
+      font-size: 20px;
+    }
+
+    .experience-content p {
+      margin-top: 15px;
+
+      color: #94a7bb;
+
+      line-height: 1.85;
+    }
+
+    .learnings {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 28px;
+    }
+
+    .learning {
+      padding: 11px 15px;
+
+      border: 1px solid rgba(110, 225, 181, 0.15);
+      border-radius: 10px;
+
+      background: rgba(70, 200, 155, 0.04);
+
+      color: #9fb5c8;
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+    }
+
+    .learning b {
+      margin-right: 7px;
+
+      color: #65e3b3;
+    }
+
+
+    /* =========================================
+       PROJECTS
+    ========================================= */
+
+    .featured-project {
+      display: grid;
+
+      grid-template-columns: 0.9fr 1.1fr;
+
+      gap: 50px;
+
+      margin-top: 55px;
+
+      padding: 42px;
+
+      border: 1px solid rgba(130, 165, 200, 0.15);
+      border-radius: 24px;
+
+      background:
+        radial-gradient(
+          circle at 15% 30%,
+          rgba(66, 227, 175, 0.07),
+          transparent 35%
+        ),
+        rgba(11, 18, 28, 0.65);
+    }
+
+    .project-visual {
+      min-height: 360px;
+
+      display: grid;
+      place-items: center;
+
+      position: relative;
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(68, 227, 176, 0.12),
+          transparent 45%
+        ),
+        #080e17;
+    }
+
+    .orbit {
+      position: absolute;
+
+      border: 1px solid rgba(89, 220, 178, 0.20);
+
+      border-radius: 50%;
+    }
+
+    .orbit.one {
+      width: 260px;
+      height: 260px;
+    }
+
+    .orbit.two {
+      width: 190px;
+      height: 190px;
+    }
+
+    .project-core {
+      width: 100px;
+      height: 100px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      border: 1px solid #6ae5b9;
+
+      color: #73e9bf;
+
+      font-family: "DM Mono", monospace;
+
+      background: rgba(60, 200, 155, 0.06);
+
+      box-shadow:
+        0 0 40px rgba(80, 230, 180, 0.15);
+    }
+
+    .project-node {
+      position: absolute;
+
+      padding: 9px 12px;
+
+      border: 1px solid rgba(120, 170, 205, 0.22);
+      border-radius: 8px;
+
+      background: rgba(10, 18, 28, 0.9);
+
+      color: #9eb5cb;
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+    }
+
+    .node-pdf {
+      top: 20%;
+      left: 13%;
+    }
+
+    .node-faiss {
+      bottom: 19%;
+      left: 15%;
+    }
+
+    .node-llm {
+      top: 23%;
+      right: 12%;
+    }
+
+    .featured-content .project-number {
+      color: #6ce5b6;
+
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+    }
+
+    .featured-content h3 {
+      margin-top: 15px;
+
+      font-size: 42px;
+      letter-spacing: -1.5px;
+    }
+
+    .project-subtitle {
+      margin-top: 4px;
+
+      color: #76e2ba;
+
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+    }
+
+    .featured-content > p {
+      margin-top: 22px;
+
+      color: #91a5ba;
+
+      line-height: 1.85;
+    }
+
+    .project-stats {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 12px;
+
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 17px;
+
+      border: 1px solid rgba(130, 165, 200, 0.11);
+      border-radius: 12px;
+
+      background: rgba(10, 17, 26, 0.5);
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 17px;
+    }
+
+    .stat span {
+      display: block;
+
+      margin-top: 4px;
+
+      color: #70869c;
+
+      font-size: 10px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 25px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+
+      border-radius: 8px;
+
+      background: rgba(100, 140, 180, 0.08);
+
+      color: #9bb0c4;
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+    }
+
+
+    /* PROJECT GRID */
+
+    .project-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 18px;
+
+      margin-top: 18px;
+    }
+
+    .project-card {
+      padding: 30px;
+
+      border: 1px solid rgba(130, 165, 200, 0.13);
+      border-radius: 19px;
+
+      background: rgba(10, 17, 27, 0.58);
+
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+
+      border-color: rgba(95, 225, 179, 0.30);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+
+      color: #6de4b5;
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+    }
+
+    .project-card h3 {
+      margin-top: 18px;
+
+      font-size: 23px;
+    }
+
+    .project-card p {
+      margin-top: 12px;
+
+      color: #8599ae;
+
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+
+      margin-top: 22px;
+
+      color: #60778d;
+
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+    }
+
+
+    /* =========================================
+       STACK
+    ========================================= */
+
+    .stack-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 16px;
+
+      margin-top: 50px;
+    }
+
+    .stack-card {
+      min-height: 170px;
+
+      padding: 25px;
+
+      border: 1px solid rgba(130, 165, 200, 0.12);
+      border-radius: 17px;
+
+      background: rgba(10, 17, 27, 0.55);
+    }
+
+    .stack-card > span {
+      color: #65e3b3;
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+    }
+
+    .stack-card h3 {
+      margin-top: 17px;
+
+      font-size: 20px;
+    }
+
+    .stack-card p {
+      margin-top: 9px;
+
+      color: #8196aa;
+
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================
+       LEADERSHIP
+    ========================================= */
+
+    .leadership-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 17px;
+
+      margin-top: 50px;
+    }
+
+    .leadership-card {
+      padding: 28px;
+
+      border: 1px solid rgba(130, 165, 200, 0.12);
+      border-radius: 18px;
+
+      background: rgba(10, 17, 27, 0.55);
+    }
+
+    .leadership-card .kicker {
+      color: #67e4b5;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+    }
+
+    .leadership-card h3 {
+      margin-top: 15px;
+
+      font-size: 20px;
+    }
+
+    .leadership-card p {
+      margin-top: 12px;
+
+      color: #8498ac;
+
+      font-size: 13px;
+      line-height: 1.75;
+    }
+
+
+    /* =========================================
+       CONTACT
+    ========================================= */
+
+    .contact-box {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 40px;
+
+      padding: 55px;
+
+      border: 1px solid rgba(100, 220, 175, 0.18);
+      border-radius: 25px;
+
+      background:
+        radial-gradient(
+          circle at 10% 50%,
+          rgba(65, 220, 170, 0.09),
+          transparent 35%
+        ),
+        rgba(11, 19, 29, 0.72);
+    }
+
+    .contact-box h2 {
+      max-width: 620px;
+    }
+
+    .contact-box p {
+      max-width: 600px;
+
+      margin-top: 15px;
+
+      color: #8ea2b6;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    footer {
+      padding: 30px 0 45px;
+
+      border-top: 1px solid rgba(130, 165, 200, 0.10);
+
+      color: #62788d;
+
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    .mobile-menu-button {
+      display: none;
+
+      border: 0;
+      background: none;
+
+      color: white;
+
+      font-size: 25px;
+
+      cursor: pointer;
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 950px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 55px;
+      }
+
+      .terminal {
+        max-width: 700px;
+      }
+
+      .featured-project {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .leadership-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .container {
+        width: min(100% - 30px, 1180px);
+      }
+
+      .navbar {
+        height: 70px;
+      }
+
+      .profile-picture {
+        width: 43px;
+        height: 43px;
+      }
+
+      .brand {
+        gap: 12px;
+        font-size: 19px;
+      }
+
+      .github-btn {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding-top: 60px;
+        padding-bottom: 55px;
+
+        gap: 45px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 12vw, 62px);
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-info {
+        grid-template-columns: 1fr;
+
+        margin-top: 35px;
+      }
+
+      .terminal-body {
+        padding: 25px 20px 30px;
+
+        font-size: 12px;
+      }
+
+      .terminal-title {
+        margin-left: 15px;
+
+        font-size: 11px;
+      }
+
+      .terminal-status {
+        font-size: 10px;
+      }
+
+      .section {
+        padding: 85px 0;
+      }
+
+      .section h2 {
+        font-size: 34px;
+      }
+
+      .education-main {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+      }
+
+      .school-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-card {
+        padding: 27px 23px;
+      }
+
+      .experience-header {
+        flex-direction: column;
+      }
+
+      .featured-project {
+        padding: 22px;
+      }
+
+      .project-visual {
+        min-height: 280px;
+      }
+
+      .featured-content h3 {
+        font-size: 34px;
+      }
+
+      .project-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 32px 25px;
+      }
+
+      .contact-actions {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+    }
+
+  </style>
 </head>
 
+
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="grid-bg" aria-hidden="true"></div>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-  <header class="site-header">
-    <div class="container nav-wrap">
 
-      <a class="brand" href="#top">
-        <span class="brand-mark">AK</span>
+  <!-- =========================================
+       NAVIGATION
+  ========================================= -->
+
+  <header class="navbar">
+
+    <div class="container nav-inner">
+
+      <a href="#home" class="brand">
+
+        <img
+          src="profile.jpg"
+          alt="Ahad Khan"
+          class="profile-picture"
+        >
+
         <span>Ahad Khan</span>
+
       </a>
 
-      <nav class="nav" aria-label="Primary navigation">
+
+      <nav class="nav-links">
+
         <a href="#education">Education</a>
+
         <a href="#experience">Experience</a>
-        <a href="#work">Projects</a>
+
+        <a href="#projects">Projects</a>
+
         <a href="#stack">Stack</a>
+
         <a href="#leadership">Leadership</a>
+
         <a href="#contact">Contact</a>
+
       </nav>
 
-      <div class="nav-actions">
-        <a
-          class="nav-button nav-github"
-          href="https://github.com/Ahad335"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub <span>↗</span>
-        </a>
 
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Open navigation"
-          aria-expanded="false"
-          aria-controls="mobile-nav"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+      <a
+        class="github-btn"
+        href="https://github.com/Ahad335"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
 
-      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#work">Projects</a>
-        <a href="#stack">Stack</a>
-        <a href="#leadership">Leadership</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <span class="github-icon">◉</span>
+
+        GitHub ↗
+
+      </a>
+
+
+      <button
+        class="mobile-menu-button"
+        onclick="toggleMenu()"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
 
     </div>
+
   </header>
 
 
-  <main id="top">
+  <main id="home">
 
-    <!-- =========================
-         1. INTRO
-    ========================== -->
+
+    <!-- =========================================
+         INTRO
+    ========================================= -->
+
     <section class="hero container">
 
-      <div class="hero-copy reveal">
+      <div class="hero-left">
 
         <div class="eyebrow">
+
           <span class="status-dot"></span>
+
           SOFTWARE ENGINEER · AI/ML · PRODUCT
+
         </div>
 
+
         <h1>
+
           I build systems that turn
+
           <span>ideas into usable products.</span>
+
         </h1>
 
-        <p class="hero-text">
-          I’m Ahad Khan, a software engineer at IIT Guwahati focused on
+
+        <p class="hero-description">
+
+          I'm Ahad Khan, a software engineer at IIT Guwahati focused on
           AI/ML, full-stack systems, analytics, and product development.
           I enjoy turning ambiguous problems into practical, measurable
-          solutions—from building intelligent applications to designing
-          data-driven products.
+          solutions — from intelligent applications to data-driven products.
+
         </p>
+
 
         <div class="hero-actions">
 
-          <a class="button primary" href="#education">
-            Explore my background <span>↓</span>
+          <a
+            href="#projects"
+            class="btn btn-primary"
+          >
+            View my work →
           </a>
 
-          <a
-            class="button secondary"
-            href="https://github.com/Ahad335"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub profile <span>↗</span>
-          </a>
+
+     
 
         </div>
 
-        <div class="hero-meta">
 
-          <div>
-            <strong>IIT Guwahati</strong>
-            <span>B.Tech · Chemical Science &amp; Technology</span>
+        <div class="hero-info">
+
+          <div class="info-card">
+
+            <div class="info-icon">🎓</div>
+
+            <div>
+
+              <strong>IIT Guwahati</strong>
+
+              <span>
+                B.Tech · Chemical Science &amp; Technology
+              </span>
+
+            </div>
+
           </div>
 
-          <div>
-            <strong>2027</strong>
-            <span>Expected graduation</span>
+
+          <div class="info-card">
+
+            <div class="info-icon">▣</div>
+
+            <div>
+
+              <strong>2027</strong>
+
+              <span>
+                Expected graduation
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <div class="info-icon">⌖</div>
+
+            <div>
+
+              <strong>Guwahati, India</strong>
+
+              <span>
+                Open to opportunities
+              </span>
+
+            </div>
+
           </div>
 
         </div>
@@ -150,47 +1635,113 @@
       </div>
 
 
-      <div class="hero-terminal reveal delay-1">
+      <!-- =====================================
+           TERMINAL
+      ====================================== -->
 
-        <div class="terminal-bar">
-          <span class="dots">
-            <i></i>
-            <i></i>
-            <i></i>
+      <div class="terminal">
+
+        <div class="terminal-header">
+
+          <div class="terminal-dots">
+
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+
+          </div>
+
+
+          <span class="terminal-title">
+            ahad@iitg:~
           </span>
 
-          <span class="mono">ahad@portfolio:~</span>
 
-          <span class="live">available</span>
+          <span class="terminal-status">
+            available
+          </span>
+
         </div>
+
 
         <div class="terminal-body">
 
-          <p>
-            <span class="prompt">$</span> whoami
-          </p>
+          <div class="terminal-line">
 
-          <p class="terminal-output">
+            <span class="terminal-prompt">$</span>
+
+            whoami
+
+          </div>
+
+
+          <div class="terminal-output">
+
+            Ahad Khan<br>
+
             software engineer / builder
-          </p>
 
-          <p>
-            <span class="prompt">$</span> cat focus.txt
-          </p>
+          </div>
 
-          <pre>AI systems + RAG
-Full-stack products
-Applied machine learning
-Data &amp; decision systems
-Algorithms &amp; optimization</pre>
 
-          <p>
-            <span class="prompt">$</span> ship --next
-          </p>
+          <div class="terminal-line">
 
-          <p class="terminal-output">
-            something useful.
-          </p>
+            <span class="terminal-prompt">$</span>
+
+            education
+
+          </div>
+
+
+          <div class="terminal-output">
+
+            IIT Guwahati<br>
+
+            B.Tech — Chemical Science &amp; Technology<br>
+
+            2023 → 2027
+
+          </div>
+
+
+          <div class="terminal-line">
+
+            <span class="terminal-prompt">$</span>
+
+            focus
+
+          </div>
+
+
+          <div class="terminal-output terminal-muted">
+
+            ▸ AI systems + RAG<br>
+
+            ▸ Full-stack products<br>
+
+            ▸ Applied machine learning<br>
+
+            ▸ Data &amp; decision systems<br>
+
+            ▸ Algorithms &amp; optimization
+
+          </div>
+
+
+          <div class="terminal-line">
+
+            <span class="terminal-prompt">$</span>
+
+            status
+
+          </div>
+
+
+          <div class="terminal-output terminal-status-text">
+
+            Open to opportunities.<span class="cursor"></span>
+
+          </div>
 
         </div>
 
@@ -199,106 +1750,119 @@ Algorithms &amp; optimization</pre>
     </section>
 
 
-    <!-- TECH TICKER -->
-    <div class="ticker" aria-hidden="true">
+    <!-- =========================================
+         TECH TICKER
+    ========================================= -->
+
+    <div class="ticker">
 
       <div class="ticker-track">
 
-        <span>PYTHON</span><b>✦</b>
-        <span>REACT</span><b>✦</b>
-        <span>FASTAPI</span><b>✦</b>
-        <span>LANGCHAIN</span><b>✦</b>
-        <span>SQL</span><b>✦</b>
-        <span>JAVASCRIPT</span><b>✦</b>
-        <span>C++</span><b>✦</b>
-        <span>XGBOOST</span><b>✦</b>
-        <span>POWER BI</span><b>✦</b>
+        <span>PYTHON</span><b>●</b>
+        <span>REACT</span><b>●</b>
+        <span>FASTAPI</span><b>●</b>
+        <span>LANGCHAIN</span><b>●</b>
+        <span>SQL</span><b>●</b>
+        <span>JAVASCRIPT</span><b>●</b>
+        <span>C++</span><b>●</b>
+        <span>XGBOOST</span><b>●</b>
+        <span>POWER BI</span><b>●</b>
+        <span>MONGODB</span><b>●</b>
 
-        <span>PYTHON</span><b>✦</b>
-        <span>REACT</span><b>✦</b>
-        <span>FASTAPI</span><b>✦</b>
-        <span>LANGCHAIN</span><b>✦</b>
-        <span>SQL</span><b>✦</b>
-        <span>JAVASCRIPT</span><b>✦</b>
-        <span>C++</span><b>✦</b>
-        <span>XGBOOST</span><b>✦</b>
-        <span>POWER BI</span><b>✦</b>
+        <span>PYTHON</span><b>●</b>
+        <span>REACT</span><b>●</b>
+        <span>FASTAPI</span><b>●</b>
+        <span>LANGCHAIN</span><b>●</b>
+        <span>SQL</span><b>●</b>
+        <span>JAVASCRIPT</span><b>●</b>
+        <span>C++</span><b>●</b>
+        <span>XGBOOST</span><b>●</b>
+        <span>POWER BI</span><b>●</b>
+        <span>MONGODB</span><b>●</b>
 
       </div>
 
     </div>
 
 
-    <!-- =========================
-         2. EDUCATION
-    ========================== -->
-    <section class="section container" id="education">
+    <!-- =========================================
+         EDUCATION
+    ========================================= -->
 
-      <div class="section-head reveal">
+    <section
+      class="section container"
+      id="education"
+    >
 
-        <div class="section-label">
-          <span>01</span>
-          <p>EDUCATION</p>
+      <div class="section-label">
+
+        <span>01</span>
+
+        EDUCATION
+
+      </div>
+
+
+      <h2>
+        Building a strong foundation across technology and problem solving.
+      </h2>
+
+
+      <div class="education-main">
+
+        <div>
+
+          <div class="education-kicker">
+            INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
+          </div>
+
+          <h3>
+            B.Tech in Chemical Science and Technology
+          </h3>
+
+          <p>
+            Currently pursuing my undergraduate degree at IIT Guwahati,
+            with an expected graduation in 2027.
+          </p>
+
         </div>
 
-        <div class="education-stack">
 
-          <!-- IIT -->
-          <article class="education-card">
+        <div class="education-year">
+          2023 — 2027
+        </div>
 
-            <div>
-
-              <span class="education-kicker">
-                INDIAN INSTITUTE OF TECHNOLOGY GUWAHATI
-              </span>
-
-              <h2>
-                B.Tech in Chemical Science and Technology
-              </h2>
-
-              <p>
-                Currently pursuing undergraduate studies at IIT Guwahati,
-                with an expected graduation in 2027.
-              </p>
-
-            </div>
-
-            <div class="education-year">
-              2023 — 2027
-            </div>
-
-          </article>
+      </div>
 
 
-          <!-- SCHOOL EDUCATION -->
-          <div class="school-grid">
+      <div class="school-grid">
 
-            <article class="school-card">
+        <div class="school-card">
 
-              <span class="school-kicker">
-                CBSE · SENIOR SECONDARY
-              </span>
-
-              <strong>89.6%</strong>
-
-              <p>Class XII · 2022 </p>
-
-            </article>
-
-
-            <article class="school-card">
-
-              <span class="school-kicker">
-                CBSE · SECONDARY
-              </span>
-
-              <strong>93.6%</strong>
-
-              <p>Class X · 2020</p>
-
-            </article>
-
+          <div class="education-kicker">
+            CBSE · SENIOR SECONDARY
           </div>
+
+          <strong>89.6%</strong>
+
+          <p>
+            Class XII · 2022
+          </p>
+
+        </div>
+
+
+        <div class="school-card">
+
+          <div class="education-kicker">
+            CBSE · SECONDARY
+          </div>
+
+          <strong>93.6%</strong>
+
+          <p>
+            Class X · 2020
+          </p>
 
         </div>
 
@@ -307,163 +1871,174 @@ Algorithms &amp; optimization</pre>
     </section>
 
 
- <!-- =========================
-     3. EXPERIENCE
-========================== -->
-<section class="section container" id="experience">
+    <!-- =========================================
+         EXPERIENCE
+    ========================================= -->
 
-  <div class="section-head reveal">
+    <section
+      class="section container"
+      id="experience"
+    >
 
-    <div class="section-label">
-      <span>02</span>
-      <p>EXPERIENCE</p>
-    </div>
+      <div class="section-label">
 
-    <div>
+        <span>02</span>
 
-      <div class="timeline">
+        EXPERIENCE
 
-        <article class="timeline-item">
-
-          <div class="timeline-top">
-
-            <div>
-              <strong>Data Science Intern</strong>
-              <span>Remote</span>
-            </div>
-
-            <time>Aug 2026</time>
-
-          </div>
+      </div>
 
 
-          <div class="experience-summary">
+      <h2>
+        Learning how to take machine learning from experimentation to production.
+      </h2>
+
+
+      <article class="experience-card">
+
+        <div class="experience-header">
+
+          <div>
 
             <h3>
-              Building reliable machine-learning systems beyond the model itself.
+              Data Science Intern
             </h3>
 
-            <p>
-              During my internship, I worked on an end-to-end fraud detection
-              workflow, taking a machine-learning solution from data preparation
-              and model development to interpretability and API delivery. The
-              experience gave me practical exposure to working with imbalanced
-              real-world data, improving model performance through systematic
-              experimentation, and thinking about how ML systems behave once
-              they move beyond notebooks.
-            </p>
+            <span>
+              Remote
+            </span>
 
-            <p>
-              I worked with LightGBM, Scikit-Learn and Optuna for model
-              development and optimization, while SHAP helped make predictions
-              understandable from both a global and individual-claim
-              perspective. I also built the serving layer with FastAPI and
-              Pydantic and gained experience with CI/CD practices for delivering
-              and maintaining machine-learning systems.
-            </p>
+          </div>
 
-            <div class="experience-learnings">
 
-              <span>
-                <b>01</b>
-                From experimentation to production
-              </span>
+          <div class="experience-date">
+            Aug 2026
+          </div>
 
-              <span>
-                <b>02</b>
-                Model performance &amp; interpretability
-              </span>
+        </div>
 
-              <span>
-                <b>03</b>
-                API design &amp; reliable delivery
-              </span>
 
+        <div class="experience-content">
+
+          <h4>
+            Building reliable machine-learning systems beyond the model itself.
+          </h4>
+
+
+          <p>
+
+            During my internship, I worked on an end-to-end fraud detection
+            workflow, taking a machine-learning solution from data preparation
+            and model development to interpretability and API delivery.
+            The experience gave me practical exposure to working with
+            imbalanced real-world data, improving model performance through
+            systematic experimentation, and thinking about how ML systems
+            behave once they move beyond notebooks.
+
+          </p>
+
+
+          <p>
+
+            I worked with LightGBM, Scikit-Learn and Optuna for model
+            development and optimization, while SHAP helped make predictions
+            understandable from both global and individual-claim perspectives.
+            I also built the serving layer with FastAPI and Pydantic and gained
+            experience with CI/CD practices for delivering and maintaining
+            machine-learning systems.
+
+          </p>
+
+
+          <div class="learnings">
+
+            <div class="learning">
+              <b>01</b>
+              From experimentation to production
+            </div>
+
+            <div class="learning">
+              <b>02</b>
+              Model performance &amp; interpretability
+            </div>
+
+            <div class="learning">
+              <b>03</b>
+              API design &amp; reliable delivery
             </div>
 
           </div>
 
-        </article>
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- =========================================
+         PROJECTS
+    ========================================= -->
+
+    <section
+      class="section container"
+      id="projects"
+    >
+
+      <div class="section-label">
+
+        <span>03</span>
+
+        PROJECT WORK
 
       </div>
 
-    </div>
 
-  </div>
+      <h2>
+        Selected work across engineering, AI/ML, data, and product.
+      </h2>
 
-</section>
 
+      <p class="section-sub">
 
-    <!-- =========================
-         4. PROJECT WORK
-    ========================== -->
-    <section class="section container" id="work">
+        A selection of projects demonstrating software engineering,
+        applied machine learning, analytical thinking, and product judgment.
 
-      <div class="section-head reveal">
-
-        <div class="section-label">
-          <span>03</span>
-          <p>PROJECT WORK</p>
-        </div>
-
-        <div>
-
-          <h2>
-            Selected work across engineering, AI/ML, data, and product.
-          </h2>
-
-          <p class="section-sub">
-            A focused selection of systems and case studies demonstrating
-            software engineering, applied machine learning, analytical
-            thinking, and product judgment.
-          </p>
-
-        </div>
-
-      </div>
+      </p>
 
 
       <!-- FEATURED PROJECT -->
-      <article class="feature reveal">
 
-        <div class="feature-visual">
+      <article class="featured-project">
 
-          <div class="visual-orbit orbit-a"></div>
-          <div class="visual-orbit orbit-b"></div>
+        <div class="project-visual">
 
-          <div class="visual-core">
+          <div class="orbit one"></div>
+          <div class="orbit two"></div>
+
+          <div class="project-core">
             RAG
           </div>
 
-          <div class="visual-node node-1">
+          <div class="project-node node-pdf">
             PDF
           </div>
 
-          <div class="visual-node node-2">
+          <div class="project-node node-faiss">
             FAISS
           </div>
 
-          <div class="visual-node node-3">
+          <div class="project-node node-llm">
             LLM
           </div>
 
         </div>
 
 
-        <div class="feature-content">
+        <div class="featured-content">
 
-          <div class="eyeline">
-
-            <span>01 / FEATURED</span>
-
-            <a
-              href="https://github.com/Ahad335/SourceLaw"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Repository ↗
-            </a>
-
+          <div class="project-number">
+            01 / FEATURED
           </div>
 
 
@@ -471,34 +2046,55 @@ Algorithms &amp; optimization</pre>
             SourceLaw
           </h3>
 
-          <p class="feature-title">
+
+          <div class="project-subtitle">
             Indian Legal AI Assistant
-          </p>
+          </div>
+
 
           <p>
+
             An AI-powered legal research assistant that allows users to
             ask questions in natural language and receive answers grounded
             in Indian legal source documents. The system retrieves relevant
-            passages, generates contextual responses, and surfaces source
-            PDFs, page references, and supporting excerpts for verification.
+            passages and generates contextual responses while surfacing
+            source PDFs and page references for verification.
+
           </p>
 
 
-          <div class="feature-stats">
+          <div class="project-stats">
 
-            <div>
-              <b>38</b>
-              <span>source PDFs indexed</span>
+            <div class="stat">
+
+              <strong>38</strong>
+
+              <span>
+                source PDFs indexed
+              </span>
+
             </div>
 
-            <div>
-              <b>React + FastAPI</b>
-              <span>product surface + API</span>
+
+            <div class="stat">
+
+              <strong>React + FastAPI</strong>
+
+              <span>
+                product + API
+              </span>
+
             </div>
 
-            <div>
-              <b>FAISS</b>
-              <span>persistent vector store</span>
+
+            <div class="stat">
+
+              <strong>FAISS</strong>
+
+              <span>
+                vector retrieval
+              </span>
+
             </div>
 
           </div>
@@ -506,13 +2102,13 @@ Algorithms &amp; optimization</pre>
 
           <div class="tags">
 
-            <span>React 18</span>
-            <span>Vite</span>
-            <span>FastAPI</span>
-            <span>LangChain</span>
-            <span>FAISS</span>
-            <span>BGE embeddings</span>
-            <span>Llama 3.3 70B</span>
+            <span class="tag">React</span>
+            <span class="tag">Vite</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">FAISS</span>
+            <span class="tag">BGE</span>
+            <span class="tag">Llama 3.3 70B</span>
 
           </div>
 
@@ -521,389 +2117,520 @@ Algorithms &amp; optimization</pre>
       </article>
 
 
-      <!-- PROJECT FILTERS -->
-      <div class="filter-row reveal">
+      <!-- OTHER PROJECTS -->
 
-        <button class="filter active" data-filter="all">
-          All
-        </button>
-
-        <button class="filter" data-filter="engineering">
-          Engineering
-        </button>
-
-        <button class="filter" data-filter="ml">
-          AI / ML
-        </button>
-
-        <button class="filter" data-filter="data">
-          Data
-        </button>
-
-        <button class="filter" data-filter="product">
-          Product
-        </button>
-
-        <button class="filter" data-filter="algorithms">
-          Algorithms
-        </button>
-
-      </div>
+      <div class="project-grid">
 
 
-      <!-- PROJECT GRID -->
-      <div class="projects-grid">
+        <!-- INSURANCE FRAUD -->
 
-        <!-- BANK CHURN -->
-        <article class="project-card reveal" data-category="engineering ml">
+        <article class="project-card">
 
-          <div class="card-top">
+          <div class="project-top">
 
-            <span class="category">
-              AI / ML
-            </span>
+            <span>AI / ML</span>
 
             <a
-              href="https://github.com/Ahad335/bank-customer-churn-prediction"
+              href="https://github.com/Ahad335/insurance-fraud-api"
               target="_blank"
-              rel="noreferrer"
             >
               ↗
             </a>
 
           </div>
 
+
+          <h3>
+            Insurance Fraud API
+          </h3>
+
+
+          <p>
+
+            Production-oriented fraud risk scoring pipeline combining
+            LightGBM, SHAP explainability, FastAPI and automated model
+            serving for automobile insurance claims.
+
+          </p>
+
+
+          <div class="tags">
+
+            <span class="tag">LightGBM</span>
+            <span class="tag">SHAP</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Pydantic</span>
+
+          </div>
+
+
+          <div class="project-footer">
+
+            <span>ML pipeline</span>
+            <span>REST API</span>
+
+          </div>
+
+        </article>
+
+
+        <!-- WEED DETECTION -->
+
+        <article class="project-card">
+
+          <div class="project-top">
+
+            <span>COMPUTER VISION</span>
+
+            <a
+              href="https://github.com/Ahad335"
+              target="_blank"
+            >
+              ↗
+            </a>
+
+          </div>
+
+
+          <h3>
+            Weed Detection
+          </h3>
+
+
+          <p>
+
+            Computer-vision project focused on identifying weeds from
+            agricultural imagery, applying deep-learning techniques to
+            automate visual detection.
+
+          </p>
+
+
+          <div class="tags">
+
+            <span class="tag">Python</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Deep Learning</span>
+
+          </div>
+
+
+          <div class="project-footer">
+
+            <span>Vision</span>
+            <span>AI</span>
+
+          </div>
+
+        </article>
+
+
+        <!-- CHURN -->
+
+        <article class="project-card">
+
+          <div class="project-top">
+
+            <span>AI / ML</span>
+
+            <a
+              href="https://github.com/Ahad335/bank-customer-churn-prediction"
+              target="_blank"
+            >
+              ↗
+            </a>
+
+          </div>
+
+
           <h3>
             Bank Customer Churn Prediction
           </h3>
 
+
           <p>
-            End-to-end churn prediction pipeline featuring preprocessing,
-            interaction features, EDA, and a stacking ensemble combining
-            XGBoost, LightGBM, CatBoost, and logistic regression.
+
+            End-to-end churn prediction pipeline featuring feature
+            engineering, cross-validation and a stacking ensemble using
+            XGBoost, LightGBM, CatBoost and logistic regression.
+
           </p>
 
+
           <div class="tags">
-            <span>Python</span>
-            <span>Scikit-learn</span>
-            <span>XGBoost</span>
-            <span>LightGBM</span>
-            <span>CatBoost</span>
+
+            <span class="tag">Python</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">LightGBM</span>
+            <span class="tag">CatBoost</span>
+
           </div>
 
-          <div class="card-footer">
+
+          <div class="project-footer">
+
             <span>5-fold CV</span>
             <span>Recall + AUC</span>
+
           </div>
 
         </article>
 
 
         <!-- TIME SERIES -->
-        <article class="project-card reveal delay-1" data-category="ml data">
 
-          <div class="card-top">
+        <article class="project-card">
 
-            <span class="category">
-              TIME SERIES
-            </span>
+          <div class="project-top">
+
+            <span>TIME SERIES</span>
 
             <a
               href="https://github.com/Ahad335/Time-Series-Forecasting"
               target="_blank"
-              rel="noreferrer"
             >
               ↗
             </a>
 
           </div>
 
+
           <h3>
             Multi-Store Sales Forecasting
           </h3>
 
+
           <p>
-            Time-series forecasting workflow using lag features,
-            temporal validation, feature engineering, and gradient-boosted
-            regression to forecast store and item sales.
+
+            Forecasting workflow using temporal feature engineering,
+            lag variables and gradient-boosted regression to predict
+            store and item sales.
+
           </p>
 
+
           <div class="tags">
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>XGBoost</span>
-            <span>TimeSeriesSplit</span>
+
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">XGBoost</span>
+
           </div>
 
-          <div class="card-footer">
+
+          <div class="project-footer">
+
             <span>RMSE: 0.93763</span>
-            <span>34 months</span>
+            <span>Forecasting</span>
+
           </div>
 
         </article>
 
 
         <!-- CREDIT CARD FRAUD -->
-        <article class="project-card reveal" data-category="ml data">
 
-          <div class="card-top">
+        <article class="project-card">
 
-            <span class="category">
-              FINTECH ML
-            </span>
+          <div class="project-top">
+
+            <span>FINTECH ML</span>
 
             <a
               href="https://github.com/Ahad335/credit-card-fraud-detection-ml"
               target="_blank"
-              rel="noreferrer"
             >
               ↗
             </a>
 
           </div>
+
 
           <h3>
             Credit Card Fraud Detection
           </h3>
 
+
           <p>
-            Fraud classification workflow using EDA, SMOTE,
-            Logistic Regression, SVM, and KNN, with evaluation focused
-            on precision, recall, F1-score, and ROC-AUC for imbalanced data.
+
+            Fraud classification workflow using SMOTE and multiple
+            supervised learning models with evaluation focused on
+            precision, recall, F1-score and ROC-AUC.
+
           </p>
 
+
           <div class="tags">
-            <span>Python</span>
-            <span>Scikit-learn</span>
-            <span>SMOTE</span>
-            <span>ROC-AUC</span>
+
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">SMOTE</span>
+
           </div>
 
-          <div class="card-footer">
+
+          <div class="project-footer">
+
             <span>F1: 0.99</span>
-            <span>imbalanced data</span>
+            <span>Imbalanced ML</span>
+
           </div>
 
         </article>
 
 
-        <!-- CUSTOMER VALUE -->
-        <article class="project-card reveal delay-1" data-category="data product">
+        <!-- IND MONEY -->
 
-          <div class="card-top">
+        <article class="project-card">
 
-            <span class="category">
-              DATA
-            </span>
+          <div class="project-top">
 
-            <a
-              href="https://github.com/Ahad335/Decoding-customer-value"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ↗
-            </a>
-
-          </div>
-
-          <h3>
-            Decoding Customer Value
-          </h3>
-
-          <p>
-            SQL-driven customer analytics for a D2C fashion brand,
-            connecting customer segmentation, discount dependency,
-            geography, and loyalty to actionable retention strategies.
-          </p>
-
-          <div class="tags">
-            <span>MySQL</span>
-            <span>Python</span>
-            <span>Power BI</span>
-            <span>Segmentation</span>
-          </div>
-
-          <div class="card-footer">
-            <span>3,900 customers</span>
-            <span>12-mo strategy</span>
-          </div>
-
-        </article>
-
-
-        <!-- INDMONEY -->
-        <article class="project-card reveal" data-category="product">
-
-          <div class="card-top">
-
-            <span class="category">
-              PRODUCT CASE
-            </span>
+            <span>PRODUCT</span>
 
             <a
               href="https://github.com/Ahad335/IND-Money"
               target="_blank"
-              rel="noreferrer"
             >
               ↗
             </a>
 
           </div>
+
 
           <h3>
             INDmoney Lending Product
           </h3>
 
+
           <p>
-            Product case study for a lending vertical spanning personal
-            loans, credit line, and BNPL. The work combines market research,
-            a 74-person survey, RICE prioritization, wireframes, success
-            metrics, and go-to-market planning.
+
+            Product case study covering lending product opportunities,
+            user research, prioritization, product flows, metrics and
+            go-to-market strategy.
+
           </p>
 
+
           <div class="tags">
-            <span>User Research</span>
-            <span>RICE</span>
-            <span>Wireframes</span>
-            <span>GTM</span>
+
+            <span class="tag">User Research</span>
+            <span class="tag">RICE</span>
+            <span class="tag">GTM</span>
+
           </div>
 
-          <div class="card-footer">
+
+          <div class="project-footer">
+
             <span>74 respondents</span>
-            <span>3 lending products</span>
+            <span>Product strategy</span>
+
           </div>
 
         </article>
 
 
         <!-- HUNCH -->
-        <article class="project-card reveal delay-1" data-category="product">
 
-          <div class="card-top">
+        <article class="project-card">
 
-            <span class="category">
-              PRODUCT CASE
-            </span>
+          <div class="project-top">
+
+            <span>PRODUCT</span>
 
             <a
               href="https://github.com/Ahad335/Hunch-Product"
               target="_blank"
-              rel="noreferrer"
             >
               ↗
             </a>
 
           </div>
+
 
           <h3>
             Hunch — Engagement Strategy
           </h3>
 
+
           <p>
+
             Product strategy case study proposing engagement initiatives
-            around rewards, personalized content, and community interaction,
-            prioritized using RICE and tied to measurable KPIs.
+            around rewards, personalized content and community interaction,
+            prioritized using RICE.
+
           </p>
 
+
           <div class="tags">
-            <span>Product Strategy</span>
-            <span>RICE</span>
-            <span>Personas</span>
-            <span>GTM</span>
+
+            <span class="tag">Product Strategy</span>
+            <span class="tag">RICE</span>
+            <span class="tag">KPIs</span>
+
           </div>
 
-          <div class="card-footer">
+
+          <div class="project-footer">
+
             <span>3 MVP features</span>
-            <span>RICE prioritization</span>
-          </div>
+            <span>Prioritization</span>
 
-        </article>
-
-
-        <!-- POLYGON -->
-        <article class="project-card reveal" data-category="algorithms engineering">
-
-          <div class="card-top">
-
-            <span class="category">
-              ALGORITHMS
-            </span>
-
-            <a
-              href="https://github.com/Ahad335/Polygon-Optimisation"
-              target="_blank"
-              rel="noreferrer"
-            >
-              ↗
-            </a>
-
-          </div>
-
-          <h3>
-            Weighted Polygon Optimization
-          </h3>
-
-          <p>
-            Geometric optimization under a hard 1,000-vertex constraint
-            using cluster analysis, grid compression, hole selection,
-            and knapsack-style dynamic programming.
-          </p>
-
-          <div class="tags">
-            <span>C++</span>
-            <span>Python</span>
-            <span>DP</span>
-            <span>Geometry</span>
-          </div>
-
-          <div class="card-footer">
-            <span>≤ 1,000 vertices</span>
-            <span>constraint-driven</span>
           </div>
 
         </article>
 
 
         <!-- ZCODER -->
-        <article class="project-card reveal delay-1" data-category="engineering">
 
-          <div class="card-top">
+        <article class="project-card">
 
-            <span class="category">
-              FULL-STACK
-            </span>
+          <div class="project-top">
+
+            <span>FULL-STACK</span>
 
             <a
               href="https://github.com/Ahad335/zcoder"
               target="_blank"
-              rel="noreferrer"
             >
               ↗
             </a>
 
           </div>
 
+
           <h3>
             ZCoder
           </h3>
 
+
           <p>
+
             Full-stack developer platform built as a group project,
-            combining coding profiles, problem management, community
-            discussions, contest discovery, content sharing, and
-            competitive-programming progress tracking.
+            combining developer profiles, coding problems, discussions,
+            contest discovery and competitive-programming progress tracking.
+
           </p>
 
+
           <div class="tags">
-            <span>React</span>
-            <span>Node.js</span>
-            <span>Express</span>
-            <span>MongoDB</span>
+
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">MongoDB</span>
+
           </div>
 
-          <div class="card-footer">
-            <span>community features</span>
-            <span>full-stack</span>
+
+          <div class="project-footer">
+
+            <span>Full-stack</span>
+            <span>Group project</span>
+
+          </div>
+
+        </article>
+
+
+        <!-- POLYGON -->
+
+        <article class="project-card">
+
+          <div class="project-top">
+
+            <span>ALGORITHMS</span>
+
+            <a
+              href="https://github.com/Ahad335/Polygon-Optimisation"
+              target="_blank"
+            >
+              ↗
+            </a>
+
+          </div>
+
+
+          <h3>
+            Weighted Polygon Optimization
+          </h3>
+
+
+          <p>
+
+            Geometric optimization problem using clustering, grid
+            compression and knapsack-style dynamic programming under
+            a strict vertex constraint.
+
+          </p>
+
+
+          <div class="tags">
+
+            <span class="tag">C++</span>
+            <span class="tag">Python</span>
+            <span class="tag">DP</span>
+            <span class="tag">Geometry</span>
+
+          </div>
+
+
+          <div class="project-footer">
+
+            <span>≤ 1,000 vertices</span>
+            <span>Optimization</span>
+
+          </div>
+
+        </article>
+
+
+        <!-- CUSTOMER VALUE -->
+
+        <article class="project-card">
+
+          <div class="project-top">
+
+            <span>DATA ANALYTICS</span>
+
+            <a
+              href="https://github.com/Ahad335/Decoding-customer-value"
+              target="_blank"
+            >
+              ↗
+            </a>
+
+          </div>
+
+
+          <h3>
+            Decoding Customer Value
+          </h3>
+
+
+          <p>
+
+            Customer analytics project combining SQL, Python and Power BI
+            to identify customer segments, retention patterns and
+            discount dependency.
+
+          </p>
+
+
+          <div class="tags">
+
+            <span class="tag">MySQL</span>
+            <span class="tag">Python</span>
+            <span class="tag">Power BI</span>
+
+          </div>
+
+
+          <div class="project-footer">
+
+            <span>3,900 customers</span>
+            <span>Analytics</span>
+
           </div>
 
         </article>
@@ -913,234 +2640,267 @@ Algorithms &amp; optimization</pre>
     </section>
 
 
-    <!-- =========================
-         5. TECHNICAL STACK
-    ========================== -->
-    <section class="section stack-section" id="stack">
+    <!-- =========================================
+         TECHNICAL STACK
+    ========================================= -->
 
-      <div class="container">
+    <section
+      class="section container"
+      id="stack"
+    >
 
-        <div class="section-head reveal">
+      <div class="section-label">
 
-          <div class="section-label">
-            <span>04</span>
-            <p>TECHNICAL STACK</p>
-          </div>
+        <span>04</span>
 
-          <div>
-
-            <h2>
-              Broad enough to build end-to-end.
-            </h2>
-
-            <p class="section-sub">
-              A practical stack across application engineering,
-              machine learning, data, and algorithmic problem solving.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="stack-grid">
-
-          <div class="stack-block reveal">
-            <span>01</span>
-            <h3>Languages</h3>
-            <p>
-              Python · C++ · JavaScript · SQL
-            </p>
-          </div>
-
-
-          <div class="stack-block reveal delay-1">
-            <span>02</span>
-            <h3>Frontend</h3>
-            <p>
-              React · Vite · HTML · CSS
-            </p>
-          </div>
-
-
-          <div class="stack-block reveal">
-            <span>03</span>
-            <h3>Backend</h3>
-            <p>
-              Node.js · Express.js · FastAPI · REST APIs
-            </p>
-          </div>
-
-
-          <div class="stack-block reveal delay-1">
-            <span>04</span>
-            <h3>AI / ML</h3>
-            <p>
-              LangChain · FAISS · Embeddings ·
-              XGBoost · LightGBM · CatBoost · Scikit-learn
-            </p>
-          </div>
-
-
-          <div class="stack-block reveal">
-            <span>05</span>
-            <h3>Data</h3>
-            <p>
-              MySQL · MongoDB · Pandas · Power BI ·
-              EDA · Segmentation
-            </p>
-          </div>
-
-
-          <div class="stack-block reveal delay-1">
-            <span>06</span>
-            <h3>Engineering</h3>
-            <p>
-              Feature engineering · ML pipelines ·
-              Dynamic programming · Git
-            </p>
-          </div>
-
-        </div>
+        TECHNICAL STACK
 
       </div>
 
-    </section>
+
+      <h2>
+        The tools I use to build, analyze, and ship.
+      </h2>
 
 
-    <!-- =========================
-         6. LEADERSHIP
-    ========================== -->
-    <section class="section container" id="leadership">
-
-      <div class="section-head reveal">
-
-        <div class="section-label">
-          <span>05</span>
-          <p>LEADERSHIP &amp; EXTRACURRICULARS</p>
-        </div>
-
-        <div class="leadership-grid">
-
-          <!-- POR -->
-          <article class="leadership-card">
-
-            <span class="education-kicker">
-              POSITION OF RESPONSIBILITY
-            </span>
-
-            <h3>
-              Venue Head (Sports) — Badminton, SPIRIT
-            </h3>
-
-            <p class="leadership-meta">
-              IIT Guwahati · 2025 — 2026
-            </p>
-
-            <p>
-              Led badminton venue operations for the institute’s annual
-              sports festival, coordinating event execution, venue
-              readiness, scheduling, and on-ground responsibilities.
-            </p>
-
-          </article>
+      <div class="stack-grid">
 
 
-          <!-- TABLE TENNIS -->
-          <article class="leadership-card">
+        <div class="stack-card">
 
-            <span class="education-kicker">
-              SPARDHA ’24 · ’25 · ’26
-            </span>
+          <span>01</span>
 
-            <h3>
-              Table Tennis · Competitive Leadership
-            </h3>
-
-            <p>
-              Secured <b>3rd place in Table Tennis</b> and served as
-              <b>Captain of the Lohit Hostel Table Tennis Team</b>,
-              demonstrating competitive excellence and leadership.
-            </p>
-
-          </article>
-
-
-          <!-- ALCHERINGA -->
-          <article class="leadership-card">
-
-            <span class="education-kicker">
-              ALCHERINGA · IIT GUWAHATI
-            </span>
-
-            <h3>
-              Associate, Team Events
-            </h3>
-
-            <p>
-              Assisted in event coordination, logistics, and team
-              management for the successful execution of the cultural
-              festival.
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         7. CONTACT
-    ========================== -->
-    <section class="section container" id="contact">
-
-      <div class="contact-card reveal">
-
-        <div class="contact-copy">
-
-          <span class="section-label">
-            <span>06</span>
-            <p>CONTACT</p>
-          </span>
-
-          <h2>
-            Let’s build something worth shipping.
-          </h2>
+          <h3>Languages</h3>
 
           <p>
-            Open to software engineering, AI/ML, product engineering,
-            and meaningful technical collaborations.
+            Python · C++ · JavaScript · SQL
           </p>
 
         </div>
 
 
-        <div class="contact-links">
+        <div class="stack-card">
+
+          <span>02</span>
+
+          <h3>Frontend</h3>
+
+          <p>
+            React · Vite · HTML · CSS
+          </p>
+
+        </div>
+
+
+        <div class="stack-card">
+
+          <span>03</span>
+
+          <h3>Backend</h3>
+
+          <p>
+            Node.js · Express.js · FastAPI · REST APIs
+          </p>
+
+        </div>
+
+
+        <div class="stack-card">
+
+          <span>04</span>
+
+          <h3>AI / ML</h3>
+
+          <p>
+            LangChain · FAISS · Embeddings ·
+            XGBoost · LightGBM · CatBoost · Scikit-learn
+          </p>
+
+        </div>
+
+
+        <div class="stack-card">
+
+          <span>05</span>
+
+          <h3>Data</h3>
+
+          <p>
+            MySQL · MongoDB · Pandas · Power BI ·
+            EDA · Segmentation
+          </p>
+
+        </div>
+
+
+        <div class="stack-card">
+
+          <span>06</span>
+
+          <h3>Engineering</h3>
+
+          <p>
+            Git · ML pipelines · Feature engineering ·
+            Dynamic programming · REST architecture
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         LEADERSHIP
+    ========================================= -->
+
+    <section
+      class="section container"
+      id="leadership"
+    >
+
+      <div class="section-label">
+
+        <span>05</span>
+
+        LEADERSHIP &amp; EXTRACURRICULARS
+
+      </div>
+
+
+      <h2>
+        Leadership beyond the code.
+      </h2>
+
+
+      <div class="leadership-grid">
+
+
+        <article class="leadership-card">
+
+          <div class="kicker">
+            POSITION OF RESPONSIBILITY
+          </div>
+
+          <h3>
+            Venue Head (Sports) — Badminton
+          </h3>
+
+          <p>
+
+            <strong>SPIRIT · IIT Guwahati · 2025–2026</strong><br><br>
+
+            Led badminton venue operations for the institute's annual
+            sports festival, coordinating event execution, venue readiness,
+            scheduling and on-ground responsibilities.
+
+          </p>
+
+        </article>
+
+
+        <article class="leadership-card">
+
+          <div class="kicker">
+            SPARDHA '24 · '25 · '26
+          </div>
+
+          <h3>
+            Table Tennis · Competitive Leadership
+          </h3>
+
+          <p>
+
+            Secured <strong>3rd place in Table Tennis</strong> and served
+            as <strong>Captain of the Lohit Hostel Table Tennis Team</strong>,
+            demonstrating competitive excellence and leadership.
+
+          </p>
+
+        </article>
+
+
+        <article class="leadership-card">
+
+          <div class="kicker">
+            ALCHERINGA · IIT GUWAHATI
+          </div>
+
+          <h3>
+            Associate, Team Events
+          </h3>
+
+          <p>
+
+            Assisted in event coordination, logistics and team management
+            for the successful execution of IIT Guwahati's cultural festival.
+
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CONTACT
+    ========================================= -->
+
+    <section
+      class="section container"
+      id="contact"
+    >
+
+      <div class="contact-box">
+
+        <div>
+
+          <div class="section-label">
+
+            <span>06</span>
+
+            CONTACT
+
+          </div>
+
+
+          <h2>
+            Let's build something worth shipping.
+          </h2>
+
+
+          <p>
+
+            Open to software engineering, AI/ML, product engineering,
+            and meaningful technical collaborations.
+
+          </p>
+
+        </div>
+
+
+        <div class="contact-actions">
 
           <a
-            class="button primary"
+            class="btn btn-primary"
             href="mailto:iahadkhan14@gmail.com"
           >
             Email me ↗
           </a>
 
+
           <a
-            class="button secondary"
+            class="btn btn-secondary"
             href="https://www.linkedin.com/in/ahad-khan-bb00152a6/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             LinkedIn ↗
           </a>
 
-        </div>
-
-
-        <div class="contact-note">
-          iahadkhan14@gmail.com
         </div>
 
       </div>
@@ -1150,31 +2910,94 @@ Algorithms &amp; optimization</pre>
   </main>
 
 
-  <!-- =========================
+  <!-- =========================================
        FOOTER
-  ========================== -->
-  <footer class="footer container">
+  ========================================= -->
 
-    <span>
-      Ahad Khan
-    </span>
+  <footer>
 
-    <span>
-      Software Engineer · AI/ML · Product Engineering
-    </span>
+    <div class="container footer-inner">
 
-    <a
-      href="https://github.com/Ahad335"
-      target="_blank"
-      rel="noreferrer"
-    >
-      github.com/Ahad335 ↗
-    </a>
+      <span>
+        © 2026 Ahad Khan
+      </span>
+
+      <span>
+        Software Engineer · AI/ML · Product Engineering
+      </span>
+
+      <a
+        href="https://github.com/Ahad335"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        github.com/Ahad335 ↗
+      </a>
+
+    </div>
 
   </footer>
 
 
-  <script src="script.js"></script>
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+
+  <script>
+
+    function toggleMenu() {
+
+      const nav = document.querySelector(".nav-links");
+
+      if (nav.style.display === "flex") {
+
+        nav.style.display = "";
+
+      } else {
+
+        nav.style.display = "flex";
+
+        nav.style.position = "absolute";
+        nav.style.top = "70px";
+        nav.style.left = "15px";
+        nav.style.right = "15px";
+
+        nav.style.flexDirection = "column";
+        nav.style.alignItems = "flex-start";
+
+        nav.style.padding = "20px";
+
+        nav.style.border = "1px solid rgba(130,165,200,0.15)";
+        nav.style.borderRadius = "16px";
+
+        nav.style.background = "rgba(7,11,18,0.97)";
+        nav.style.backdropFilter = "blur(20px)";
+
+        nav.style.gap = "20px";
+
+      }
+
+    }
+
+
+    /* Close mobile navigation after clicking a link */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        if (window.innerWidth <= 950) {
+
+          document.querySelector(".nav-links").style.display = "";
+
+        }
+
+      });
+
+    });
+
+  </script>
+
 
 </body>
 </html>
